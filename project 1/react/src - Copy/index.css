@@ -1,0 +1,189 @@
+/* Navbar container styles */
+.navbar {
+  display: flex;
+  background-color: hsl(211, 100%, 50%); /* Navbar background color */
+  width: 100%; /* Navbar spans the full width */
+  max-width: 100%; /* Remove any max-width constraints */
+}
+
+/* Navbar brand styles */
+.navbar-brand {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  margin-right: 1rem;
+}
+
+/* Navbar navigation styles */
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+/* Navbar item styles */
+.navbar-nav .nav-item {
+  margin-right: 1rem;
+}
+
+/* Navbar link styles */
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f1f1f1; /* Lighter hover color */
+}
+
+/* Navbar toggle button styling */
+.navbar-toggler {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.navbar-toggler-icon {
+  background: none;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-nav .nav-item {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Card section styles */
+.spaced-container {
+  margin-top: 50px; /* Space between navbar and card */
+  padding-top: 20px;
+}
+
+/* Custom card styling */
+.card-custom {
+  width: 18rem;
+  padding: 20px;
+  border: 1px solid #007bff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Center the card container */
+.carousel {
+  max-width: 100%;
+  margin: 0 auto;
+  height: 50vh; /* Set the height to 50% of the viewport height */
+  position: relative; /* Necessary for overlay effects */
+  overflow: hidden; /* Hide parts of the image outside the container */
+  padding: 0%; /* Add padding to prevent overlap with the blur */
+}
+
+/* Ensure carousel items fill the carousel container */
+.carousel-inner,
+.carousel-item {
+  height: 100%;
+  position: relative;
+}
+
+/* Apply zoom effect to the images */
+.carousel-item img {
+  object-fit: cover; /* Ensures image covers the container */
+  width: 100%;
+  max-height: 500px;
+  transform: scale(1.); /* Zoom in effect */
+  transition: transform 0.5s ease; /* Smooth zoom effect */
+}
+
+/* Optional: Add hover effect to zoom in further */
+.carousel-item:hover img {
+  transform: scale(1.2); /* Zoom in more on hover */
+}
+
+/* Add blur effect to the sides */
+.carousel::before, 
+.carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10%; /* Reduce width of the blur effect on both sides */
+  z-index: 1;
+  background: rgba(15, 15, 15, 0.2); /* Light black blur */
+  /* backdrop-filter: blur(5px); Apply blur effect */
+  pointer-events: none; /* Ensure blur area doesn't block interaction */
+}
+
+/* Left side blur */
+.carousel::before {
+  left: 0;
+}
+
+/* Right side blur */
+.carousel::after {
+  right: 0;
+  color: white;
+}
+
+/* Ensure navigation icons are visible */
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 2; /* Ensure controls are above the blur effect */
+  pointer-events: all; /* Ensure controls are clickable */
+}
+
+/* Adjust right navigation icon position */
+.carousel-control-next {
+  right: 5%; /* Move the right icon inward to avoid overlap with the blur */
+}
+
+/* Adjust left navigation icon position */
+.carousel-control-prev {
+  left: 1%; /* Move the left icon inward to avoid overlap with the blur */
+}
+/* Search bar *//* Position the search bar vertically centered and aligned to the right */
+.carousel-caption {
+  position: absolute; /* Enable absolute positioning */
+  top: 50%; /* Vertically center */
+  right: 5%; /* Align to the right with some margin from the edge */
+  transform: translateY(-50%); /* Vertically center with respect to its own height */
+  width: auto; /* Set width to auto or adjust as needed */
+  z-index: 10; /* Ensure it's above the carousel images */
+}
+
+/* Adjust the search input and button */
+.carousel-caption .form-control {
+  width: 100%; /* Make the input width fit its container */
+  display: inline-block; /* Ensure input and button stay in line */
+}
+
+.carousel-caption button {
+  margin-left: 10px; /* Add space between the input and the button */
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .carousel-caption {
+    right: 2%; /* Adjust right margin for mobile screens */
+    width: 100%; /* Adjust width as needed */
+  }
+
+  .carousel-caption .form-control {
+    width: 100%; /* Adjust input width for mobile screens */
+  }
+}
